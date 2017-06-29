@@ -12,7 +12,7 @@ class BoardRenderer(private val board: Board) {
     private fun renderRow(row: Int) =
         0.until(board.size())
             .map { column -> renderCell(row, column) + squareSeparator(column) }
-            .joinToString() + "\n"
+            .joinToString("") + "\n"
 
     private fun renderCell(row: Int, column: Int) =
         when (board[row, column]) {
