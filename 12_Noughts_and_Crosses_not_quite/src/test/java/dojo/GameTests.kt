@@ -8,8 +8,7 @@ import org.junit.Assert.assertThat
 
 class GameTests {
 
-    @Test
-    fun initialStateOfTheGame() {
+    @Test fun `initial state of the game`() {
         val game = Game()
 
         assertThat(game.nextCellToPlace(), equalTo(X))
@@ -22,9 +21,7 @@ class GameTests {
         ))
     }
 
-    @Test
-    @Throws(Game.InvalidMove::class)
-    fun crossMakesTheFirstMove() {
+    @Test fun `cross makes the first move`() {
         val game = Game()
         val gameAfterMove = game.makeMove(Move(1, 1), X)
 
@@ -39,8 +36,7 @@ class GameTests {
     }
 
     @Test(expected = Game.InvalidMove::class)
-    @Throws(Game.InvalidMove::class)
-    fun playerMakesInvalidMove() {
+    fun `player makes invalid move`() {
         val game = Game()
         game.makeMove(Move(100, 100), X)
     }
