@@ -2,8 +2,7 @@ package dojo;
 
 import org.junit.Test;
 
-import static dojo.Cell.O;
-import static dojo.Cell.X;
+import static dojo.Cell.*;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.junit.Assert.assertThat;
 

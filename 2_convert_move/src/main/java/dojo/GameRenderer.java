@@ -3,11 +3,11 @@ package dojo;
 public class GameRenderer {
     private Game game;
 
-    GameRenderer(Game game) {
+    public GameRenderer(Game game) {
         this.game = game;
     }
 
-    String render() {
+    public String render() {
         String message;
         if (game.isGameADraw()) {
             message = "Game is a draw!";

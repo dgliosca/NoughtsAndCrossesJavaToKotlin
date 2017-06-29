@@ -8,13 +8,13 @@ public class ConsoleUI {
 	private final Consumer<String> out;
 	private Game game;
 
-	ConsoleUI(Game game, FunctionThatThrows<String, IOException> in, Consumer<String> out) {
+	public ConsoleUI(Game game, FunctionThatThrows<String, IOException> in, Consumer<String> out) {
 		this.game = game;
 		this.in = in;
 		this.out = out;
 	}
 
-	void run() {
+	public void run() {
 		out.accept(render());
 
 		while (!game.isGameOver()) {
@@ -33,7 +33,7 @@ public class ConsoleUI {
 		}
 	}
 
-	String render() {
+	public String render() {
         return new GameRenderer(game).render();
     }
 
