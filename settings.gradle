@@ -8,4 +8,5 @@ include '6_convert_game_renderer'
 include '7_convert_function_that_throws'
 include '8_convert_console_ui'
 include '9_convert_main'
+include '10_convert_tests'
 
