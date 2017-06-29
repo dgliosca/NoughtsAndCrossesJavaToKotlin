@@ -1,4 +1,5 @@
 rootProject.name = 'kotlin-dojo'
 include '1_convert_cell'
 include '2_convert_move'
+include '3_convert_board'
 
