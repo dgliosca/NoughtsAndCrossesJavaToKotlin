@@ -1,10 +1,10 @@
 package dojo;
 
 public class Move {
-    final int row;
-    final int column;
+    public final int row;
+    public final int column;
 
-    Move(int row, int column) {
+    public Move(int row, int column) {
         this.row = row;
         this.column = column;
     }
