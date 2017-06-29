@@ -1,8 +1,5 @@
 package dojo;
 
-import dojo.BoardRenderer;
-import dojo.Game;
-import dojo.Move;
 import org.junit.Test;
 
 import static org.hamcrest.core.IsEqual.equalTo;

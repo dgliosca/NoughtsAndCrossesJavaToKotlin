@@ -6,11 +6,11 @@ import static java.util.stream.Collectors.joining;
 public class BoardRenderer {
     private final Board board;
 
-    BoardRenderer(Board board) {
+    public BoardRenderer(Board board) {
         this.board = board;
     }
 
-    String render() {
+    public String render() {
         return IntStream.range(0, board.size())
                 .mapToObj(this::renderRow)
                 .collect(joining("-----\n"));

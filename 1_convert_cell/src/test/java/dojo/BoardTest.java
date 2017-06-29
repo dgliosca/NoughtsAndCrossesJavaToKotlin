@@ -1,7 +1,5 @@
 package dojo;
 
-import dojo.Board;
-import dojo.Cell;
 import org.junit.Test;
 
 import java.util.ArrayList;
