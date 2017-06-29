@@ -9,7 +9,7 @@ import org.junit.Test
 class BoardTest {
 
     @Test
-    fun setAValueOnTheBoard() {
+    fun `set a value on the board`() {
         val lists = 0.until(3).map { List(3, { Empty }) }
 
         val board = Board(lists)

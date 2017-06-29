@@ -10,4 +10,5 @@ include '8_convert_console_ui'
 include '9_convert_main'
 include '10_convert_tests'
 include '11_final_clean_up'
+include '12_Noughts_and_Crosses_not_quite'
 
