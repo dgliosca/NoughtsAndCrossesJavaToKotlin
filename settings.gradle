@@ -5,4 +5,6 @@ include '3_convert_board'
 include '4_convert_board_renderer'
 include '5_convert_game'
 include '6_convert_game_renderer'
+include '7_convert_function_that_throws'
+include '8_convert_console_ui'
 
