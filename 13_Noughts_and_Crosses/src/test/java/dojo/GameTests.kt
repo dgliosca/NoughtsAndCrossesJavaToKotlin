@@ -1,0 +1,58 @@
+package dojo
+
+import dojo.Cell.*
+import org.junit.Test
+
+import org.hamcrest.core.IsEqual.equalTo
+import org.junit.Assert.assertThat
+
+class GameTests {
+
+    @Test fun `initial state of the game`() {
+        val game = Game()
+
+        assertThat(game.nextCellToPlace(), equalTo(X))
+        assertThat(BoardRenderer(game.board()).render(), equalTo(
+            " | | \n" +
+                "-----\n" +
+                " | | \n" +
+                "-----\n" +
+                " | | \n"
+        ))
+    }
+
+    @Test fun `cross makes the first move`() {
+        val game = Game()
+        val gameAfterMove = game.makeMove(Move(1, 1), X)
+
+        assertThat(gameAfterMove.nextCellToPlace(), equalTo(O))
+        assertThat(BoardRenderer(gameAfterMove.board()).render(), equalTo(
+            " | | \n" +
+                    "-----\n" +
+                    " |X| \n" +
+                    "-----\n" +
+                    " | | \n"
+        ))
+    }
+
+    @Test(expected = Game.InvalidMove::class) fun `player makes invalid move`() {
+        val game = Game()
+        game.makeMove(Move(100, 100), X)
+    }
+
+    @Test(expected = Game.InvalidMove::class)
+    fun `player try to make a move in a location already taken`() {
+        val game = Game()
+        game.makeMove(Move(0, 0), game.nextCellToPlace())
+            .makeMove(Move(0, 0), game.nextCellToPlace())
+    }
+
+    @Test fun `game is over`() {
+        val game = Game(Board(listOf(
+            listOf(X, X, O),
+            listOf(O, X, X),
+            listOf(X, O, O))), X)
+
+        assertThat(game.isGameOver, equalTo(true))
+    }
+}
