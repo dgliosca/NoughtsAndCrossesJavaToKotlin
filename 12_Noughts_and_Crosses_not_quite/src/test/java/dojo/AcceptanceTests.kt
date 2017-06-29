@@ -1,13 +1,11 @@
 package dojo
 
-import org.junit.Before
-import org.junit.Test
-
-import java.util.LinkedList
-
+import dojo.Cell.*
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.IsEqual.equalTo
-import java.util.function.Consumer
+import org.junit.Before
+import org.junit.Test
+import java.util.*
 
 class AcceptanceTests {
 
@@ -104,22 +102,44 @@ class AcceptanceTests {
         inputs.add("2 0")
         ui.run()
 
-        //      TODO implement later
-        //	    assertThat(ui.render(), equalTo(
-        //              "\n" +
-        //	            "X| |O\n" +
-        //	            "-----\n" +
-        //	            "X|O|X\n" +
-        //	            "-----\n" +
-        //	            "O| | \n" +
-        //	            "\n" +
-        //	            "O is the winner!\n"
-        //	    ));
+        assertThat(ui.render(), equalTo(
+            "\n" +
+                "X| |O\n" +
+                "-----\n" +
+                "X|O|X\n" +
+                "-----\n" +
+                "O| | \n" +
+                "\n" +
+                "O is the winner!\n"
+        ))
     }
 
-    @Test fun gameIsADraw() {
-        //TODO implement later
+    @Test fun `game is a draw`() {
+        val game = Game()
+        val actualGame = game.makeMove(Move(0, 0), X)
+            .makeMove(Move(1, 0), O)
+            .makeMove(Move(1, 1), X)
+            .makeMove(Move(2, 0), O)
+            .makeMove(Move(2, 1), X)
+            .makeMove(Move(0, 1), O)
+            .makeMove(Move(0, 2), X)
+            .makeMove(Move(2, 2), O)
+            .makeMove(Move(1, 2), X)
+
+        val actual = GameRenderer(actualGame).render()
+
+        assertThat(actual, equalTo(
+            "\n" +
+                "X|O|X\n" +
+                "-----\n" +
+                "O|X|X\n" +
+                "-----\n" +
+                "O|X|O\n" +
+                "\n" +
+                "Game is a draw!\n"
+        ))
     }
+
 
     @Test fun `handle invalid input string`() {
         inputs.add("some string")

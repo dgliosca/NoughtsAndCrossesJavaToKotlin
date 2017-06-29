@@ -1,5 +1,6 @@
 package dojo
 
+import dojo.Cell.Empty
 import java.util.*
 
 data class Board(private val grid: List<List<Cell>>) {
@@ -14,13 +15,11 @@ data class Board(private val grid: List<List<Cell>>) {
 
     operator fun get(row: Int, column: Int) = grid[row][column]
 
-    fun size() = grid.size
+    val size = grid.size
 
-    fun isFull(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    fun isFull() =
+            grid.all { subList -> subList.all { it != Empty } }
 
-    fun all(coordinates: List<Pair<Int, Int>>, cell: Cell): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    fun all(coordinates: List<Pair<Int, Int>>, cell: Cell) =
+            coordinates.all { (first, second) -> get(first, second) == cell }
 }

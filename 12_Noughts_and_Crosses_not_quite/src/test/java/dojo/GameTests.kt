@@ -35,9 +35,24 @@ class GameTests {
         ))
     }
 
-    @Test(expected = Game.InvalidMove::class)
-    fun `player makes invalid move`() {
+    @Test(expected = Game.InvalidMove::class) fun `player makes invalid move`() {
         val game = Game()
         game.makeMove(Move(100, 100), X)
+    }
+
+    @Test(expected = Game.InvalidMove::class)
+    fun `player try to make a move in a location already taken`() {
+        val game = Game()
+        game.makeMove(Move(0, 0), game.nextCellToPlace())
+            .makeMove(Move(0, 0), game.nextCellToPlace())
+    }
+
+    @Test fun `game is over`() {
+        val game = Game(Board(listOf(
+            listOf(X, X, O),
+            listOf(O, X, X),
+            listOf(X, O, O))), X)
+
+        assertThat(game.isGameOver, equalTo(true))
     }
 }
