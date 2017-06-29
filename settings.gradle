@@ -7,4 +7,5 @@ include '5_convert_game'
 include '6_convert_game_renderer'
 include '7_convert_function_that_throws'
 include '8_convert_console_ui'
+include '9_convert_main'
 
