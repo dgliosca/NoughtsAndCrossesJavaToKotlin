@@ -54,4 +54,6 @@ A simple execution of the game will look like that (coordinates are 0 indexed st
      | | 
     X is the winner!
     
-Each submodule will contains a README with instructions and hints of what to do to get to the next step.
+The code challenge is divided into checkpoints each contained in a separate directory where a README gives hints about solving the problem.
+The solution of a challenge in directory _n_ is provided in directory _n+1_. If you are new to Kotlin we strongly suggest to approach the challenges following the provided sequence.
+Every solution will teach you something about the language and how to solve the next steps.
