@@ -11,7 +11,7 @@ public class Main {
 
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
         PrintStream out = System.out;
-        ConsoleUI ui = new ConsoleUI(game, in::readLine , out::println);
+        ConsoleUI ui = new ConsoleUI(game, in::readLine, out::println);
 
         ui.run();
     }

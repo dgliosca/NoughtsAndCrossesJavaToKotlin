@@ -1,6 +1,7 @@
 package dojo;
 
 import java.util.stream.IntStream;
+
 import static java.util.stream.Collectors.joining;
 
 public class BoardRenderer {
@@ -24,10 +25,14 @@ public class BoardRenderer {
 
     private String renderCell(int row, int column) {
         switch (board.get(row, column)) {
-            case X: return "X";
-            case O: return "O";
-            case Empty: return " ";
-            default: throw new IllegalStateException("It never happens!");
+            case X:
+                return "X";
+            case O:
+                return "O";
+            case Empty:
+                return " ";
+            default:
+                throw new IllegalStateException("It never happens!");
         }
     }
 

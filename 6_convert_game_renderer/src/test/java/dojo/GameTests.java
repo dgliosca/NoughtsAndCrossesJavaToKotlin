@@ -13,12 +13,12 @@ public class GameTests {
         Game game = new Game();
 
         assertThat(game.nextCellToPlace(), equalTo(X));
-        assertThat(new BoardRenderer(game.board()).render(), equalTo(
+        assertThat(new BoardRenderer(game.board()).render(), equalTo("" +
                 " | | \n" +
-                        "-----\n" +
-                        " | | \n" +
-                        "-----\n" +
-                        " | | \n"
+                "-----\n" +
+                " | | \n" +
+                "-----\n" +
+                " | | \n"
         ));
     }
 
@@ -28,12 +28,12 @@ public class GameTests {
         Game gameAfterMove = game.makeMove(new Move(1, 1), X);
 
         assertThat(gameAfterMove.nextCellToPlace(), equalTo(O));
-        assertThat(new BoardRenderer(gameAfterMove.board()).render(), equalTo(
+        assertThat(new BoardRenderer(gameAfterMove.board()).render(), equalTo("" +
                 " | | \n" +
-                        "-----\n" +
-                        " |X| \n" +
-                        "-----\n" +
-                        " | | \n"
+                "-----\n" +
+                " |X| \n" +
+                "-----\n" +
+                " | | \n"
         ));
     }
 

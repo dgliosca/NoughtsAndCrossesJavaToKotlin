@@ -12,12 +12,12 @@ class GameTests {
         val game = Game()
 
         assertThat(game.nextCellToPlace(), equalTo(X))
-        assertThat(BoardRenderer(game.board()).render(), equalTo(
+        assertThat(BoardRenderer(game.board()).render(), equalTo("" +
             " | | \n" +
-                "-----\n" +
-                " | | \n" +
-                "-----\n" +
-                " | | \n"
+            "-----\n" +
+            " | | \n" +
+            "-----\n" +
+            " | | \n"
         ))
     }
 
@@ -26,12 +26,12 @@ class GameTests {
         val gameAfterMove = game.makeMove(Move(1, 1), X)
 
         assertThat(gameAfterMove.nextCellToPlace(), equalTo(O))
-        assertThat(BoardRenderer(gameAfterMove.board()).render(), equalTo(
+        assertThat(BoardRenderer(gameAfterMove.board()).render(), equalTo("" +
             " | | \n" +
-                    "-----\n" +
-                    " |X| \n" +
-                    "-----\n" +
-                    " | | \n"
+            "-----\n" +
+            " |X| \n" +
+            "-----\n" +
+            " | | \n"
         ))
     }
 

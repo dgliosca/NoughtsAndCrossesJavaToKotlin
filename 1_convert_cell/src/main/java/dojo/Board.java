@@ -2,6 +2,7 @@ package dojo;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import static java.util.stream.Collectors.toList;
 
 public class Board {
