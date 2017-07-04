@@ -3,7 +3,7 @@ package dojo
 import dojo.Cell.Empty
 import java.util.*
 
-data class Board(private val grid: List<List<Cell>>) {
+class Board(private val grid: List<List<Cell>>) {
 
     constructor(board: Board) : this(board.grid)
 
