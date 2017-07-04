@@ -10,14 +10,13 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 public class AcceptanceTests {
 
-    private Game game;
     private LinkedList<String> inputs;
     private LinkedList<String> outputs;
     private ConsoleUI ui;
 
     @Before
     public void setUp() {
-        game = new Game();
+        Game game = new Game();
         inputs = new LinkedList<>();
         outputs = new LinkedList<>();
         ui = new ConsoleUI(game, () -> {
