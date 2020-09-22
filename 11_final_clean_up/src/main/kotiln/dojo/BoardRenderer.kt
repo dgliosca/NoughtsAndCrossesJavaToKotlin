@@ -4,7 +4,7 @@ import dojo.Cell.*
 
 class BoardRenderer(private val board: Board) {
 
-    fun render() = 0.until(board.size()).joinToString("-----") { renderRow(it) }
+    fun render() = 0.until(board.size()).joinToString("-----\n") { renderRow(it) }
 
     private fun renderRow(row: Int) =
             0.until(board.size()).joinToString("", postfix = "\n") { column ->
