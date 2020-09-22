@@ -2,9 +2,8 @@ package dojo
 
 import java.io.BufferedReader
 import java.io.InputStreamReader
-import java.util.function.Consumer
 
-fun main(args: Array<String>) {
+fun main() {
     val game = Game()
 
     val `in` = BufferedReader(InputStreamReader(System.`in`))
