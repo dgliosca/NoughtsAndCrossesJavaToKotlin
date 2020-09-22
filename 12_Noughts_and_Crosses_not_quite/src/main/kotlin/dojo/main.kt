@@ -1,6 +1,6 @@
 package dojo
 
-fun main(args: Array<String>) {
+fun main() {
     val game = Game()
     val ui = ConsoleUI(game)
     ui.run()
