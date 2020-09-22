@@ -1,4 +1,4 @@
-# kotlin-dojo
+# Noughts And Crosses Java ToKotlin
 A Kotlin programming challenge around the game of Noughts and Crosses.
 
 Requirements

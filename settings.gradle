@@ -1,4 +1,4 @@
-rootProject.name = 'kotlin-dojo'
+rootProject.name = 'NoughtsAndCrossesJavaToKotlin'
 include '01_convert_cell'
 include '02_convert_move'
 include '03_convert_board'
