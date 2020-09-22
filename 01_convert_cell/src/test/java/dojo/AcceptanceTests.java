@@ -27,7 +27,7 @@ public class AcceptanceTests {
     }
 
     @Test
-    public void aGameInWhichNoughtsWin() throws Exception {
+    public void aGameInWhichNoughtsWin() {
         ui.run();
         assertThat(outputs.pollFirst(), equalTo("" +
                 "\n" +
@@ -122,12 +122,12 @@ public class AcceptanceTests {
     }
 
     @Test
-    public void gameIsADraw() throws Exception {
+    public void gameIsADraw() {
         //TODO implement later
     }
 
     @Test
-    public void handleInvalidInputString() throws Exception {
+    public void handleInvalidInputString() {
         inputs.add("some string");
         ui.run();
 
@@ -145,7 +145,7 @@ public class AcceptanceTests {
     }
 
     @Test
-    public void handleInvalidInputNumber() throws Exception {
+    public void handleInvalidInputNumber() {
         inputs.add("123");
         ui.run();
 
