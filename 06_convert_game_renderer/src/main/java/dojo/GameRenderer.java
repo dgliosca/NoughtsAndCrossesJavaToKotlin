@@ -1,7 +1,7 @@
 package dojo;
 
 public class GameRenderer {
-    private Game game;
+    private final Game game;
 
     public GameRenderer(Game game) {
         this.game = game;
