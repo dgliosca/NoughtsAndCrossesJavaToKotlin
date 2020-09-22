@@ -2,7 +2,7 @@ package dojo
 
 import dojo.Cell.*
 
-class Game(private val board: Board = Board(List(3, { List(3, { Empty }) })), private val currentPlayer: Cell = X) {
+class Game(private val board: Board = Board(List(3) { List(3) { Empty } }), private val currentPlayer: Cell = X) {
 
     fun makeMove(move: Move, cell: Cell): Game {
         if (move.row < 0 || move.row >= board.size() || move.column < 0 || move.column >= board.size()) {
