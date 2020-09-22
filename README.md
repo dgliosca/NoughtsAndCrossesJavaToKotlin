@@ -1,4 +1,4 @@
-# Noughts And Crosses Java ToKotlin
+# Noughts And Crosses Java To Kotlin
 A Kotlin programming challenge around the game of Noughts and Crosses.
 
 Requirements
