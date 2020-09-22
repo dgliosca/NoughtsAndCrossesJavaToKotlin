@@ -1,17 +1,17 @@
 package dojo
 
+import com.natpryce.hamkrest.assertion.assertThat
+import com.natpryce.hamkrest.equalTo
 import dojo.Cell.Empty
 import dojo.Cell.X
 import dojo.Cell.O
-import org.hamcrest.core.IsEqual.equalTo
-import org.junit.Assert.assertThat
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class BoardTest {
 
     @Test
     fun `set a value on the board`() {
-        val lists = 0.until(3).map { List(3, { Empty }) }
+        val lists = 0.until(3).map { List(3) { Empty } }
 
         val board = Board(lists)
         val actual = board.set(0, 1, X)
@@ -25,7 +25,7 @@ class BoardTest {
             listOf(O, X, X),
             listOf(X, O, O)))
 
-        com.natpryce.hamkrest.assertion.assertThat(board.isFull(), com.natpryce.hamkrest.equalTo(false))
+        assertThat(board.isFull(), equalTo(false))
     }
 
     @Test fun `board is full`() {
@@ -34,7 +34,7 @@ class BoardTest {
             listOf(O, X, X),
             listOf(X, O, O)))
 
-        com.natpryce.hamkrest.assertion.assertThat(board.isFull(), com.natpryce.hamkrest.equalTo(true))
+        assertThat(board.isFull(), equalTo(true))
     }
 
     @Test fun `contains the same cell in all the coordinates provided`() {
@@ -44,6 +44,6 @@ class BoardTest {
             listOf(X, O, X)))
         val actual = board.all(listOf(Pair(0, 0), Pair(1, 1), Pair(2, 2)), X)
 
-        com.natpryce.hamkrest.assertion.assertThat(actual, com.natpryce.hamkrest.equalTo(true))
+        assertThat(actual, equalTo(true))
     }
 }

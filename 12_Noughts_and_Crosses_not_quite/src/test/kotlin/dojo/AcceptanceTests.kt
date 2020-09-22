@@ -4,8 +4,8 @@ import dojo.Cell.O
 import dojo.Cell.X
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.IsEqual.equalTo
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.util.*
 
 class AcceptanceTests {
@@ -15,14 +15,16 @@ class AcceptanceTests {
     private lateinit var outputs: LinkedList<String>
     private lateinit var ui: ConsoleUI
 
-    @Before fun setUp() {
+    @BeforeEach
+    fun setUp() {
         game = Game()
         inputs = LinkedList<String>()
         outputs = LinkedList<String>()
         ui = ConsoleUI(game, { if (inputs.isEmpty()) null else inputs.pop() }) { outputs.push(it) }
     }
 
-    @Test fun `a game in which noughts win`() {
+    @Test
+    fun `a game in which noughts win`() {
         ui.run()
         assertThat(outputs.pollFirst(), equalTo("" +
             "\n" +

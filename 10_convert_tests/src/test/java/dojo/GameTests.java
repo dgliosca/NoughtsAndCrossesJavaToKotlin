@@ -1,10 +1,11 @@
 package dojo;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import static dojo.Cell.*;
 import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class GameTests {
 
@@ -23,7 +24,7 @@ public class GameTests {
     }
 
     @Test
-    public void crossMakesTheFirstMove() throws Game.InvalidMove {
+    public void crossMakesTheFirstMove() {
         Game game = new Game();
         Game gameAfterMove = game.makeMove(new Move(1, 1), X);
 
@@ -37,9 +38,11 @@ public class GameTests {
         ));
     }
 
-    @Test(expected = Game.InvalidMove.class)
-    public void playerMakesInvalidMove() throws Game.InvalidMove {
+    @Test
+    public void playerMakesInvalidMove() {
         Game game = new Game();
-        game.makeMove(new Move(100, 100), X);
+        assertThrows(Game.InvalidMove.class, () -> {
+            game.makeMove(new Move(100, 100), X);
+        });
     }
 }

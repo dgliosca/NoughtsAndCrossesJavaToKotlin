@@ -11,7 +11,7 @@ fun main(args: Array<String>) {
     val out = System.out
     val ui = ConsoleUI(game, object : FunctionThatThrows<String?> {
         override fun apply() = `in`.readLine()
-    }, Consumer<String> { out.println(it) })
+    }) { out.println(it) }
 
     ui.run()
 }

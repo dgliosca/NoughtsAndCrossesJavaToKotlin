@@ -1,10 +1,13 @@
 package dojo
 
+import com.natpryce.hamkrest.assertion.assertThat
+import com.natpryce.hamkrest.equalTo
 import dojo.Cell.O
 import dojo.Cell.X
-import org.hamcrest.core.IsEqual.equalTo
-import org.junit.Assert.assertThat
-import org.junit.Test
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertThrows
+import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.function.Executable
 
 class GameTests {
 
@@ -14,11 +17,11 @@ class GameTests {
 
         assertThat(game.nextCellToPlace(), equalTo(X))
         assertThat(BoardRenderer(game.board()).render(), equalTo("" +
-            " | | \n" +
-            "-----\n" +
-            " | | \n" +
-            "-----\n" +
-            " | | \n"
+                " | | \n" +
+                "-----\n" +
+                " | | \n" +
+                "-----\n" +
+                " | | \n"
         ))
     }
 
@@ -30,18 +33,17 @@ class GameTests {
 
         assertThat(gameAfterMove.nextCellToPlace(), equalTo(O))
         assertThat(BoardRenderer(gameAfterMove.board()).render(), equalTo("" +
-            " | | \n" +
-            "-----\n" +
-            " |X| \n" +
-            "-----\n" +
-            " | | \n"
+                " | | \n" +
+                "-----\n" +
+                " |X| \n" +
+                "-----\n" +
+                " | | \n"
         ))
     }
 
-    @Test(expected = Game.InvalidMove::class)
-    @Throws(Game.InvalidMove::class)
+    @Test
     fun playerMakesInvalidMove() {
         val game = Game()
-        game.makeMove(Move(100, 100), X)
+        assertThrows(Game.InvalidMove::class.java) { game.makeMove(Move(100, 100), X) }
     }
 }

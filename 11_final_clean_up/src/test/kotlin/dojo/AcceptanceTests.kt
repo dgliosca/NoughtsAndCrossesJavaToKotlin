@@ -2,10 +2,9 @@ package dojo
 
 import org.hamcrest.MatcherAssert.assertThat
 import org.hamcrest.core.IsEqual.equalTo
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.util.*
-import java.util.function.Consumer
 
 class AcceptanceTests {
 
@@ -14,7 +13,7 @@ class AcceptanceTests {
     private var outputs: LinkedList<String>? = null
     private var ui: ConsoleUI? = null
 
-    @Before
+    @BeforeEach
     fun setUp() {
         game = Game()
         inputs = LinkedList<String>()
@@ -26,7 +25,7 @@ class AcceptanceTests {
                 else
                     inputs!!.pop()
 
-        }, Consumer<String> { outputs!!.push(it) })
+        }) { outputs!!.push(it) }
     }
 
     @Test

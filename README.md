@@ -2,8 +2,8 @@
 A Kotlin programming challenge around the game of Noughts and Crosses.
 
 Requirements
-* IntelliJ IDEA 2017.1.4 CE (or Ultimate)
-* Kotlin Plugin 1.1.3
+* IntelliJ IDEA 2020.2 CE (or Ultimate)
+* Kotlin Plugin 1.4.0
 * Java8
 
 The codebase contains a simple console based version of the game Noughts and Crosses

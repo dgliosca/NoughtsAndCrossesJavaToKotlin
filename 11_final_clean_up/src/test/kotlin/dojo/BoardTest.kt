@@ -1,10 +1,10 @@
 package dojo
 
+import com.natpryce.hamkrest.assertion.assertThat
+import com.natpryce.hamkrest.equalTo
 import dojo.Cell.Empty
 import dojo.Cell.X
-import org.hamcrest.core.IsEqual.equalTo
-import org.junit.Assert.assertThat
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 class BoardTest {
 

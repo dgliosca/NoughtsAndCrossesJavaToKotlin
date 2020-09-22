@@ -1,14 +1,17 @@
 package dojo
 
+import com.natpryce.hamkrest.assertion.assertThat
+import com.natpryce.hamkrest.equalTo
+import com.natpryce.hamkrest.has
+import com.natpryce.hamkrest.throws
 import dojo.Cell.*
-import org.junit.Test
 
-import org.hamcrest.core.IsEqual.equalTo
-import org.junit.Assert.assertThat
+import org.junit.jupiter.api.Test
 
 class GameTests {
 
-    @Test fun `initial state of the game`() {
+    @Test
+    fun `initial state of the game`() {
         val game = Game()
 
         assertThat(game.nextCellToPlace(), equalTo(X))
@@ -35,16 +38,17 @@ class GameTests {
         ))
     }
 
-    @Test(expected = Game.InvalidMove::class) fun `player makes invalid move`() {
+    @Test
+    fun `player makes invalid move`() {
         val game = Game()
-        game.makeMove(Move(100, 100), X)
+        assertThat({ game.makeMove(Move(100, 100), X) }, throws(has(Game.InvalidMove::message, equalTo("Invalid move: (100,100) it must be between 0 and 2"))))
     }
 
-    @Test(expected = Game.InvalidMove::class)
+    @Test
     fun `player try to make a move in a location already taken`() {
         val game = Game()
-        game.makeMove(Move(0, 0), game.nextCellToPlace())
-            .makeMove(Move(0, 0), game.nextCellToPlace())
+        val firstMoveGame = game.makeMove(Move(0, 0), game.nextCellToPlace())
+        assertThat({ firstMoveGame.makeMove(Move(0, 0), game.nextCellToPlace()) }, throws(has(Game.InvalidMove::message, equalTo("Invalid move: (0,0) position already taken."))))
     }
 
     @Test fun `game is over`() {
